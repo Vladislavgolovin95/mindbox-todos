@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Title = styled.h1`
+export const SHeader = styled.h1`
   font-size: 72px;
   text-align: center;
   color: #4d4d4d;

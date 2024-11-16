@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
-const InputContainer = styled.div`
+const SForm = styled.form`
   display: flex;
   margin-bottom: 20px;
 `;
 
-const Input = styled.input`
+const SInput = styled.input`
   width: 100%;
   padding: 10px;
   font-size: 20px;
@@ -23,7 +23,7 @@ const Input = styled.input`
   }
 `;
 
-const Button = styled.button`
+const SButton = styled.button`
   padding: 10px;
   border-radius: 10px;
   background-color: #007bff;
@@ -36,4 +36,4 @@ const Button = styled.button`
   }
 `;
 
-export { InputContainer, Input, Button };
+export { SForm, SInput, SButton };

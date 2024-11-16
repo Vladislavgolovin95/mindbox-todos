@@ -19,6 +19,9 @@
       "app/*": ["app/*"],
       "components/*": ["components/*"],
       "types/*": ["types/*"],
+      "main": ["main"],
+      "context": ["context"],
+      "hooks": ["hooks"]
     },
 
     /* Linting */

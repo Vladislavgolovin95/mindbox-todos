@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/mindbox-todos/',
+  base: './',
   build: {
     outDir: './docs',
     emptyOutDir: true,
@@ -14,6 +14,9 @@ export default defineConfig({
       app: '/src/app',
       components: '/src/components',
       types: '/src/types',
+      main: '/src/main',
+      context: '/src/context',
+      hooks: '/src/hooks',
     },
   },
 })

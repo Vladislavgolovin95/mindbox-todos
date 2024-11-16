@@ -1,13 +1,12 @@
-import { ITodo } from "../../types/types";
+import { ITodo } from "types/types";
+import { useTodosActions } from "./../../hooks/useTodosActions";
 import { Checkbox, Item, Title } from "./TodoItemStyles";
+import { memo } from "react";
 
-interface ITodoItem extends ITodo {
-  toggleTodo: (id: string) => void;
-}
+const TodoItem = memo(({id, complete, title}: ITodo) => {
+  console.log(`render ${title} TodoItem`)
 
-
-const TodoItem: React.FC<ITodoItem> = (props) => {
-  const { id, title, complete, toggleTodo } = props;
+  const { toggleTodo } = useTodosActions();
   return (
     <Item $completed={ complete }>
       <Checkbox 
@@ -18,6 +17,6 @@ const TodoItem: React.FC<ITodoItem> = (props) => {
       <Title>{ title }</Title>
     </Item>
   )
-}
+})
 
 export default TodoItem;

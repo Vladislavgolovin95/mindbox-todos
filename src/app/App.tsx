@@ -1,42 +1,21 @@
+import Form from "components/Form/Form";
 import Header from "components/Header/Header";
-import TodoInput from "components/TodoInput/TodoInput";
 import TodoList from "components/TodoList/TodoList";
-import { nanoid } from "nanoid";
-import { useState } from "react";
-import { ITodo } from "types/types";
 import { Container } from "./AppStyles";
+import { TodosProvider } from "./../context/TodosContext";
 
 const App: React.FC = () => {
-  const [todos, setTodos] = useState<ITodo[]>([]);
 
-  const addTodo = (value: string) => {
-    setTodos([...todos, {
-      id: nanoid(),
-      title: value,
-      complete: false,
-    }])
-  }
-
-  const toggleTodo = (id: string): void => {
-    setTodos(todos.map(todo =>
-      todo.id !== id ? todo : {...todo, complete: !todo.complete}
-    ))
-  }
-
-  const clearCompleted = () => {
-    setTodos(todos.filter(todo => !todo.complete));
-  };
+  console.log('render App')
 
   return (
+    <TodosProvider>
     <Container>
       <Header />
-      <TodoInput addTodo={ addTodo } />
-      <TodoList 
-        todos={ todos } 
-        toggleTodo={ toggleTodo }
-        clearCompleted={ clearCompleted }
-      />
+      <Form />
+      <TodoList />
     </Container>
+    </TodosProvider>
   )
 }
 

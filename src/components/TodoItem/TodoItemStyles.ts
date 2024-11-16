@@ -50,6 +50,11 @@ const Checkbox = styled.input`
     width: 20px;
     height: 20px;
     margin-right: 15px;
+
+    &:checked::before {
+    top: 0;
+    left: 4px;
+  }
   }
 `;
 

@@ -1,46 +1,60 @@
+import TodoItem from "components/TodoItem/TodoItem";
+import { useTodos } from "hooks/useTodos";
+import { useTodosActions } from "hooks/useTodosActions";
 import { useState } from "react";
-import { ITodo } from "../../types/types";
-import TodoItem from "../TodoItem/TodoItem";
+import { Filter } from "types/types";
 import { Button, FilterButtons, Footer, List, TodoListWrapper } from "./TodoListStyles";
 
-interface ITodoList {
-  todos: ITodo[];
-  toggleTodo: (id: string) => void;
-  clearCompleted: () => void;
-}
+ const TodoList = () => {
+  const [filter, setFilter] = useState<Filter>(Filter.All);
+  const TEXT_COUNT_ACTIVES_TODOS = 'items left';
 
-type TFilterTodo = 'all' | 'active' | 'completed';
-
- const TodoList: React.FC<ITodoList> = (props) => {
-  const { todos, toggleTodo, clearCompleted } = props;
-  const [filter, setFilter] = useState<TFilterTodo>('all');
+  const { todos } = useTodos();
+  const { clearCompleted } = useTodosActions();
+  const filters = [
+    { label: 'All', value: Filter.All },
+    { label: 'Active', value: Filter.Active },
+    { label: 'Completed', value: Filter.Completed },
+  ];
 
   const filteredTodos = todos.filter(todo => {
-    if (filter === 'active') return !todo.complete;
-    if (filter === 'completed') return todo.complete;
-    return true;
+    switch (filter) {
+      case Filter.Active:
+        return !todo.complete;
+      case Filter.Completed:
+        return todo.complete;
+      case Filter.All:
+      default:
+        return true;
+    }
   });
 
   const remainingCount = todos.filter(todo => !todo.complete).length;
 
+  const renderTodos = () => {
+    return filteredTodos.map(todo => <TodoItem key={todo.id} {...todo} />)
+  }
+
+  const renderFilterButtons = () => {
+    return filters.map(({ label, value }) => (
+      <Button
+        key={value}
+        $active={filter === value}
+        onClick={() => setFilter(value)}
+      >
+        {label}
+      </Button>
+    ))
+  };
+
+  console.log('render TodoList')
+
   return (
     <TodoListWrapper>
-      <List>
-        {filteredTodos.map(todo => (
-          <TodoItem
-            key={ todo.id }
-            toggleTodo={ toggleTodo }
-            { ...todo }
-          />
-        ))}
-      </List>
+      <List>{ renderTodos() }</List>
       <Footer>
-        <p>{remainingCount} items left</p>
-        <FilterButtons>
-          <Button $active={filter === 'all'} onClick={() => setFilter('all')}>All</Button>
-          <Button $active={filter === 'active'} onClick={() => setFilter('active')}>Active</Button>
-          <Button $active={filter === 'completed'} onClick={() => setFilter('completed')}>Completed</Button>
-        </FilterButtons>
+        <p>{ remainingCount } { TEXT_COUNT_ACTIVES_TODOS} </p>
+        <FilterButtons>{ renderFilterButtons() }</FilterButtons>
         <Button onClick={ clearCompleted }>Clear completed</Button>
       </Footer>
     </TodoListWrapper>
