@@ -23,17 +23,4 @@ const SInput = styled.input`
   }
 `;
 
-const SButton = styled.button`
-  padding: 10px;
-  border-radius: 10px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-
-  &:hover {
-    opacity: 0.8;
-  }
-`;
-
-export { SForm, SInput, SButton };
+export { SForm, SInput,  };

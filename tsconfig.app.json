@@ -21,6 +21,7 @@
       "types/*": ["types/*"],
       "main": ["main"],
       "context": ["context"],
+      "constants": ["constants"],
       "hooks": ["hooks"]
     },
 

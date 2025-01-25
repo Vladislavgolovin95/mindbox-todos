@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Item = styled.li<{ $completed: boolean }>`
+const SItem = styled.li<{ $completed: boolean }>`
   display: flex;
   align-items: center;
   padding: 15px;
@@ -15,7 +15,7 @@ const Item = styled.li<{ $completed: boolean }>`
   }
 `;
 
-const Checkbox = styled.input`
+const SCheckbox = styled.input`
   margin-right: 20px;
   width: 24px;
   height: 24px;
@@ -58,9 +58,9 @@ const Checkbox = styled.input`
   }
 `;
 
-const Title = styled.p`
+const STitle = styled.p`
   flex: 1;
   margin: 0;
 `;
 
-export { Item, Checkbox, Title };
+export { SItem, SCheckbox, STitle };

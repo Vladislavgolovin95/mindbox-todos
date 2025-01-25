@@ -16,6 +16,7 @@ export default defineConfig({
       types: '/src/types',
       main: '/src/main',
       context: '/src/context',
+      constants: '/src/constants',
       hooks: '/src/hooks',
     },
   },

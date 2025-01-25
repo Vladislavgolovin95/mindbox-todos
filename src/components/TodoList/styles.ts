@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const TodoListWrapper = styled.div`
+const STodoListWrapper = styled.div`
   margin: 0 auto;
   max-height: 100vh;
   padding: 20px;
@@ -9,13 +9,13 @@ const TodoListWrapper = styled.div`
   background-color: #f9f9f9;
 `;
 
-const List = styled.ul`
+const SList = styled.ul`
   padding: 0;
   margin: 0;
   list-style: none;
 `;
 
-const Footer = styled.div`
+const SFooter = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -32,7 +32,7 @@ const Footer = styled.div`
   }
 `;
 
-const FilterButtons = styled.div`
+const SWrapperButtonsFilters = styled.div`
   display: flex;
   gap: 10px;
 
@@ -41,16 +41,4 @@ const FilterButtons = styled.div`
   }
 `;
 
-const Button = styled.button<{ $active?: boolean }>`
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: ${({ $active }) => ($active ? '#4d90fe' : '#777')};
-  font-weight: ${({ $active }) => ($active ? 'bold' : 'normal')};
-  
-  &:hover {
-    color: #4d90fe;
-  }
-`;
-
-export { TodoListWrapper, List, Footer, FilterButtons, Button };
+export { STodoListWrapper, SList, SFooter, SWrapperButtonsFilters };

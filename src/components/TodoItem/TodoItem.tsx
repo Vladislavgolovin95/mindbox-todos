@@ -1,21 +1,20 @@
 import { ITodo } from "types/types";
 import { useTodosActions } from "./../../hooks/useTodosActions";
-import { Checkbox, Item, Title } from "./TodoItemStyles";
+import { SCheckbox, SItem, STitle } from "./styles";
 import { memo } from "react";
 
-const TodoItem = memo(({id, complete, title}: ITodo) => {
-  console.log(`render ${title} TodoItem`)
-
+const TodoItem = memo(({ id, complete, title }: ITodo) => {
   const { toggleTodo } = useTodosActions();
+  
   return (
-    <Item $completed={ complete }>
-      <Checkbox 
+    <SItem $completed={complete}>
+      <SCheckbox 
         type="checkbox" 
-        checked={ complete } 
+        checked={complete} 
         onChange={() => toggleTodo(id)}
       />
-      <Title>{ title }</Title>
-    </Item>
+      <STitle>{title}</STitle>
+    </SItem>
   )
 })
 

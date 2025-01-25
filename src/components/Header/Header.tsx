@@ -1,6 +1,5 @@
-import { SHeader } from "./HeaderStyles";
+import { SHeader } from "./styles";
 
 export default function Header() {
-  console.log('render Header')
   return <SHeader>todos</SHeader>
 }
