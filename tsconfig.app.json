@@ -14,15 +14,16 @@
     "moduleDetection": "force",
     "noEmit": true,
     "jsx": "react-jsx",
+    "types": ["vitest/globals"],
     "baseUrl": "src",
     "paths": {
       "app/*": ["app/*"],
       "components/*": ["components/*"],
       "types/*": ["types/*"],
       "main": ["main"],
-      "context": ["context"],
-      "constants": ["constants"],
-      "hooks": ["hooks"]
+      "context/*": ["context/*"],
+      "constants/*": ["constants/*"],
+      "hooks/*": ["hooks/*"]
     },
 
     /* Linting */

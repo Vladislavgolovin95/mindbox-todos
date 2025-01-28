@@ -69,6 +69,7 @@ const TodoList = () => {
         <Button 
           $variant="filter" 
           onClick={clearCompleted}
+          data-testId="clear-completed"
         >
           {CLEAR_COMPLETED_BUTTON_TEXT}
         </Button>

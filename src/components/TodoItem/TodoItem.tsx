@@ -12,8 +12,9 @@ const TodoItem = memo(({ id, complete, title }: ITodo) => {
         type="checkbox" 
         checked={complete} 
         onChange={() => toggleTodo(id)}
+        data-testId="todo-checkbox"
       />
-      <STitle>{title}</STitle>
+      <STitle data-testId="todo-item">{title}</STitle>
     </SItem>
   )
 })

@@ -27,10 +27,12 @@ const TodoInput = () => {
         id="text"
         name="title"
         placeholder={TODO_PLACEHOLDER_TEXT}
+        data-testId="todo-input"
       />
       <Button 
         type="submit" 
         $variant="primary"
+        data-testId="add-todo"
       >
         {ADD_TODO_BUTTON_TEXT}
       </Button>
