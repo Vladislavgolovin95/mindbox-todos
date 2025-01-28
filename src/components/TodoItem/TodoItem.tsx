@@ -7,14 +7,14 @@ const TodoItem = memo(({ id, complete, title }: ITodo) => {
   const { toggleTodo } = useTodosActions();
   
   return (
-    <SItem $completed={complete}>
+    <SItem data-testId="todo-item" $completed={complete}>
       <SCheckbox 
         type="checkbox" 
         checked={complete} 
         onChange={() => toggleTodo(id)}
         data-testId="todo-checkbox"
       />
-      <STitle data-testId="todo-item">{title}</STitle>
+      <STitle data-testId="todo-title">{title}</STitle>
     </SItem>
   )
 })
